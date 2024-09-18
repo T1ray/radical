@@ -6,6 +6,7 @@ function ButtonClick() {
 
 function calculate() {
     console.log('hello world!');
+    console.log('Hi!');
 }
 
 function changeResult(value) {
