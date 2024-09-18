@@ -1,11 +1,29 @@
 function ButtonClick() {
     saveValues();
     calculate();
-    changeResult(val);
+    changeResult(res);
+}
+
+function isNumber(str) {
+    var flag = true;
+    var nums = ['0','1','2','3','4','5','6','7','8','9'];
+    for (var i=0; i<str.length; i++){
+        var letter = str[i];
+        if (nums.indexOf(letter) === -1) {
+            flag = false;
+        }
+    }
+
+    return flag; 
 }
 
 function calculate() {
-    
+    var res = null;
+    var isNum = isNumber(val);
+    if (isNum) {
+        res = Math.sqrt(val);
+    }
+    window.res = res;
 }
 
 function changeResult(value) {
