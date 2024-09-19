@@ -3,7 +3,7 @@ function ButtonClick() {
     calculate();
     changeResult(res);
 }
-//Обновление
+//Обновление 1.1
 function isNumber(str) {
     var flag = true;
     var nums = ['0','1','2','3','4','5','6','7','8','9'];
