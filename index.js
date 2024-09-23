@@ -26,7 +26,12 @@ function calculate() {
     var isNumVal = isNumber(val);
     var isNumAccur = isNumber(accur);
     if (isNumVal && isNumAccur) {
-        res = (Math.sqrt(val)).toFixed(accur);
+        if (val==="0") {
+            res = "0";
+        }
+        else {
+            res = "±" + (Math.sqrt(val)).toFixed(accur);
+        }
     }
     else {
         res = 'Invalid input format' 
