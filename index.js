@@ -7,10 +7,20 @@ function ButtonClick() {
 function isNumber(str) {
     var flag = true;
     var nums = ['0','1','2','3','4','5','6','7','8','9'];
-    for (var i=0; i<str.length; i++){
-        var letter = str[i];
-        if (nums.indexOf(letter) === -1) {
-            flag = false;
+    if (str[0]==='-'){
+        for (var i=1; i<str.length; i++){
+            var letter = str[i];
+            if (nums.indexOf(letter) === -1) {
+                flag = false;
+            }
+        }
+    }
+    else {
+        for (var i=0; i<str.length; i++){
+            var letter = str[i];
+            if (nums.indexOf(letter) === -1) {
+                flag = false;
+            }
         }
     }
     
@@ -30,7 +40,7 @@ function calculate() {
             res = "0";
         }
         else {
-            res = "±" + (Math.sqrt(val)).toFixed(accur);
+            res = "±" + (Math.sqrt(Math.abs(val))).toFixed(Math.abs(accur));
         }
     }
     else {
