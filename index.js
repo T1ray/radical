@@ -26,10 +26,18 @@ function TypeNumber(str) {
             }
         }
     }
-    
     if (str === '' || isNaN(str)) {
         flag = -1;
     }
+    try {
+        // Попытка преобразовать в комплексное число
+        let complex = math.complex(str);
+        console.log(complex);
+        // Проверка, является ли число комплексным
+        if (complex.im !== 0) {
+            flag = 3;
+        }
+    } catch (e) {}
 
     return flag;
 }
@@ -45,9 +53,14 @@ function calculate() {
             res = "0";
         } else if (TypeNumVal === 2) {
             res = "±" + (Math.sqrt(val)).toFixed(accur);
-        } else {
+        } else if (TypeNumVal === 1) {
             res = "±" + (Math.sqrt(Math.abs(val))).toFixed(accur) + "i";
+        } else {
+            let ComplexNum = math.complex(val);
+            let sqrtResult = math.sqrt(ComplexNum);
+            res = String(sqrtResult)
         }
+
     } else {
         res = 'Invalid input format';
     }
