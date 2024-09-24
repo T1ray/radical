@@ -4,37 +4,52 @@ function ButtonClick() {
     changeResult(res);
 }
 //Обновление 1.1
-function isNumber(str) {
-    var flag = true;
-    var nums = ['0','1','2','3','4','5','6','7','8','9'];
-    for (var i=0; i<str.length; i++){
-        var letter = str[i];
-        if (nums.indexOf(letter) === -1) {
-            flag = false;
+function TypeNumber(str) {
+    var flag = -1;
+    var nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    if (str === "0") {
+        flag = 0;
+    } else if (str[0] === "-") {
+        flag = 1;
+        for (var i = 1; i < str.length; i++) {
+            var letter = str[i];
+            if (nums.indexOf(letter) === -1) {
+                flag = -1;
+            }
+        }
+    } else {
+        flag = 2;
+        for (var i = 0; i < str.length; i++) {
+            var letter = str[i];
+            if (nums.indexOf(letter) === -1) {
+                flag = -1;
+            }
         }
     }
-    
-    if (str === ''){
-        flag = false;
+
+    if (str === '' || isNaN(str)) {
+        flag = -1;
     }
 
-    return flag; 
+    return flag;
 }
 
 function calculate() {
     var res = null;
-    var isNumVal = isNumber(val);
-    var isNumAccur = isNumber(accur);
-    if (isNumVal && isNumAccur) {
-        if (val==="0") {
+    var TypeNumVal = TypeNumber(val);
+    var TypeNumAccur = TypeNumber(accur);
+    console.log(TypeNumVal, val);
+    console.log(TypeNumAccur, accur);
+    if (TypeNumVal != -1 && (TypeNumAccur === 2 || TypeNumAccur === 0)) {
+        if (TypeNumVal === 0) {
             res = "0";
-        }
-        else {
+        } else if (TypeNumVal === 2) {
             res = "±" + (Math.sqrt(val)).toFixed(accur);
+        } else {
+            res = "±" + (Math.sqrt(Math.abs(val))).toFixed(accur) + "i";
         }
-    }
-    else {
-        res = 'Invalid input format' 
+    } else {
+        res = 'Invalid input format'
     }
     window.res = res;
 }
