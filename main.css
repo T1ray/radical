@@ -20,9 +20,6 @@ body{
     min-height: 100vh;
     background-color: #0078D4;
 }
-.frank{
-    position: absolute;
-}
 #en{
     border-radius: 5px;
     border-color: rgb(141, 143, 139);
@@ -52,6 +49,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .logos{
     color: #68CDFE;
