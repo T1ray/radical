@@ -28,7 +28,7 @@ body{
     border-color: rgb(141, 143, 139);
     position: relative;
     display: inline-block;
-    top:-17px;
+    top:-173px;
     background-color: rgb(141, 143, 139,0);
     border-color: rgb(141, 143, 139,0);
     width: 100%;
@@ -62,4 +62,4 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-around;
-}   
+}
