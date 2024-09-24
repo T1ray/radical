@@ -28,7 +28,7 @@ body{
     border-color: rgb(141, 143, 139);
     position: relative;
     display: inline-block;
-    top:-166px;
+    top:-17px;
     background-color: rgb(141, 143, 139,0);
     border-color: rgb(141, 143, 139,0);
     width: 100%;
@@ -36,7 +36,8 @@ body{
     font-family: sd2;
     font-size: 30px;
     padding: 0;
-    margin:10px
+    margin:10px;
+    font-size: 60px;
 }
 #nod{
     border-radius: 100px;
