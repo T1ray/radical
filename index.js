@@ -58,7 +58,10 @@ function calculate() {
         } else {
             let ComplexNum = math.complex(val);
             let sqrtResult = math.sqrt(ComplexNum);
-            res = String(sqrtResult)
+            let sign = Math.sign(sqrtResult.im);
+            if (sign===1) {sign = "+"}
+            else {sign = "-"}
+            res = String(`${sqrtResult.re.toFixed(accur)}${sign}${Math.abs(sqrtResult.im.toFixed(accur))}i`)
         }
 
     } else {
@@ -76,8 +79,8 @@ function changeResult(value) {
 }
 // Функция для получения значений из input и сохранения в переменные
 function saveValues() {
-    // Получаем значения из полей ввода
 
+    // Получаем значения из полей ввода
     let val = document.getElementById('en').value;
     let accur = document.getElementById('nod').value;
 
@@ -85,7 +88,7 @@ function saveValues() {
     console.log(typeof val, "Значение val:", val);
     console.log(typeof accur, "Значение accur:", accur);
 
-    // Вы также можете использовать переменные val и accur для дальнейших действий
+    // Добавляем возможность использовать val и accur вне функции
 
     window.val = val;
     window.accur = accur;
