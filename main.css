@@ -13,6 +13,19 @@
     font-family: sd1;
     src: url(fonts\Calculator.ttf);
 }
+.main_box{
+    height: 736px;
+    width: 736px;
+    border:#1E1A16 solid;
+    position:relative;
+    top:150px;
+    right:26%;
+}
+.text{
+    position:relative;
+    bottom: 300px;
+    left:30%;
+}
 body{
     display: flex;
     justify-content: center;
@@ -20,23 +33,11 @@ body{
     min-height: 100vh;
     background-color: #0078D4;
 }
-.frank{
-    position: absolute;
-}
 #en{
     border-radius: 5px;
-    border-color: rgb(141, 143, 139);
-    position: relative;
     display: inline-block;
-    top:-173px;
-    background-color: rgb(141, 143, 139,0);
-    border-color: rgb(141, 143, 139,0);
-    width: 100%;
     color:#1E1A16;
-    font-family: sd2;
-    font-size: 30px;
-    padding: 0;
-    margin:10px;
+    padding:0;
     font-size: 60px;
 }
 #nod{
@@ -45,18 +46,22 @@ body{
     padding: 10px;  
     border: solid;
     margin: 5px;
-    position: relative;
     display: inline-block;
 }
 .picture{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    z-index: -1;
+    position:absolute;
+}
+#square{
+    width:55%;
+    height:12%;
+    top:115px;
+    left:170px;
+    position: absolute;
 }
 .logos{
     color: #68CDFE;
     font-size: 100px;
-    position: absolute;
     display: inline-block;
     z-index: -1;
     width: 100%;
