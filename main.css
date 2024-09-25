@@ -1,26 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;  
 }
-@font-face {
-    font-family: "sd2";
-    src: url(fonts\Calculator.woff2);
-}
-@font-face {
-    font-family: "weather";
-    src: url(fonts\merriweather-regular-italic.woff2);
-    font-size: 100px;
-}
-@font-face {
-    font-family: sd1;
-    src: url(fonts\Calculator.ttf);
-}
 .main_box{
     height: 736px;
     width: 736px;
-    border:#1E1A16 solid;
     position:relative;
     top:150px;
     right:26%;
@@ -35,7 +20,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #0078D4;
+    background-color: #90e0ef;
 }
 #en{
     border-radius: 5px;
@@ -48,7 +33,6 @@ body{
     left:210px;
     background-color: rgb(0,0,0,0);
     border:rgb(0,0,0,0);
-    font-family: "sd2";
 }
 #nod{
     border-radius: 10px;
@@ -75,9 +59,47 @@ body{
 .logos{
     color: #68CDFE;
     font-size: 100px;
-    display: inline-block;
     z-index: -1;
     width: 100%;
     display: flex;
     justify-content: space-around;
+    position: absolute;
+}
+#l_lock{
+        font-size: 50px;
+        background-color: rgb(0,0,0,0.7);
+        padding: 135px 155px 135px 155px;
+        top:312px;
+        left:150px;
+        position: absolute;
+        border: rgb(0,0,0,0) solid;
+        border-radius: 8px;
+        color: rgb(255,255,255,0.8);
+}
+#r_lock{
+    font-size: 50px;
+    background-color: rgb(0,0,0,0.7);
+    position: absolute;
+    border: rgb(0,0,0,0) solid;
+    border-radius: 8px;
+    color: rgb(255,255,255,0.8);
+    top:253px;
+    left:445px;
+    padding:130px 45px 130px 45px;
+}
+.btn{
+    position: absolute;
+    top:577px;
+    left: 524px;
+    padding:22px 27px 22px 27px;
+    background-color: rgb(0,0,0,0);
+}
+.sup{
+    position: fixed;
+    top: 87.5%;
+    background-color: #0096c7;
+    padding: 10px 800px 10px 800px;
+}
+.lan{
+    background-color: rgb(0,0,0,0);
 }
