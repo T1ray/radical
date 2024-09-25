@@ -3,7 +3,7 @@ function ButtonClick() {
     calculate();
     changeResult(res);
 }
-//Обновление 1.1
+
 function TypeNumber(str) {
     var flag = -1;
     var nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -26,10 +26,18 @@ function TypeNumber(str) {
             }
         }
     }
-
     if (str === '' || isNaN(str)) {
         flag = -1;
     }
+    try {
+        // Попытка преобразовать в комплексное число
+        let complex = math.complex(str);
+        console.log(complex);
+        // Проверка, является ли число комплексным
+        if (complex.im !== 0) {
+            flag = 3;
+        }
+    } catch (e) {}
 
     return flag;
 }
@@ -45,19 +53,26 @@ function calculate() {
             res = "0";
         } else if (TypeNumVal === 2) {
             res = "±" + (Math.sqrt(val)).toFixed(accur);
-        } else {
+        } else if (TypeNumVal === 1) {
             res = "±" + (Math.sqrt(Math.abs(val))).toFixed(accur) + "i";
+        } else {
+            let ComplexNum = math.complex(val);
+            let sqrtResult = math.sqrt(ComplexNum);
+            res = String(sqrtResult)
         }
+
     } else {
-        res = 'Invalid input format'
+        res = 'Invalid input format';
     }
     window.res = res;
 }
 
 function changeResult(value) {
-    const res = document.getElementsByClassName('result')[0]
+    console.log("nice");
+    const out = document.getElementById('en');
+    out.value = String(value);
+    document.getElementById("nod").value = 0;
 
-    res.textContent = 'Result: ' + value
 }
 // Функция для получения значений из input и сохранения в переменные
 function saveValues() {
@@ -74,13 +89,12 @@ function saveValues() {
 
     window.val = val;
     window.accur = accur;
-
 }
 
 // Назначаем обработчик события для кнопки
 window.onload = function() {
     let buttons = document.getElementsByClassName("btn");
-
+    document.getElementById("nod").value = 0;
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener("click", ButtonClick);
     }
