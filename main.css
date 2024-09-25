@@ -46,12 +46,15 @@ body{
     border:rgb(0,0,0,0);
 }
 #nod{
-    border-radius: 100px;
+    border-radius: 10px;
     border-color: #68CDFE;
     padding: 10px;  
     border: solid;
     margin: 5px;
     display: inline-block;
+    position: absolute;
+    top:255px;
+    left: 150px;
 }
 .picture{
     z-index: -1;
