@@ -6,6 +6,9 @@ function ButtonClick() {
 
 function TypeNumber(str) {
     console.log(math.typeOf(str));
+    try {
+        str = math.simplify(str).toString();
+    } catch(e) {} 
     var flag = -1;
     var nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     if (str === "0") //zero
@@ -54,6 +57,9 @@ function calculate() {
     var res = null;
     var TypeNumVal = TypeNumber(val);
     var TypeNumAccur = TypeNumber(accur);
+    try {
+        val = math.simplify(val).toString();
+    } catch(e) {} 
     console.log(TypeNumVal, val);
     console.log(TypeNumAccur, accur);
     if (TypeNumVal != -1 && (TypeNumAccur === 2 || TypeNumAccur === 0)) {
