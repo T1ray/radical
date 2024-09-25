@@ -5,11 +5,15 @@ function ButtonClick() {
 }
 
 function TypeNumber(str) {
+    console.log(math.typeOf(str));
     var flag = -1;
     var nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    if (str === "0") {
+    if (str === "0") //zero
+    {
         flag = 0;
-    } else if (str[0] === "-") {
+        return flag;
+    } else if (str[0] === "-") //negative number
+    {
         flag = 1;
         for (var i = 1; i < str.length; i++) {
             var letter = str[i];
@@ -17,7 +21,8 @@ function TypeNumber(str) {
                 flag = -1;
             }
         }
-    } else {
+    } else //positive numbers
+    {
         flag = 2;
         for (var i = 0; i < str.length; i++) {
             var letter = str[i];
@@ -35,6 +40,9 @@ function TypeNumber(str) {
         console.log(complex);
         // Проверка, является ли число комплексным
         if (complex.im !== 0) {
+            flag = 4;
+        }
+        else if (complex.im === 0 && !Number.isInteger(complex.re)) {
             flag = 3;
         }
     } catch (e) {}
@@ -55,6 +63,13 @@ function calculate() {
             res = "±" + (Math.sqrt(val)).toFixed(accur);
         } else if (TypeNumVal === 1) {
             res = "±" + (Math.sqrt(Math.abs(val))).toFixed(accur) + "i";
+        } else if (TypeNumVal === 3) {
+            let num = parseFloat(val);
+            if (Math.sign(num) === 1) {
+                res = "±" + (Math.sqrt(val)).toFixed(accur);
+            } else {
+                res = "±" + (Math.sqrt(Math.abs(val))).toFixed(accur) + "i";
+            }
         } else {
             let ComplexNum = math.complex(val);
             let sqrtResult = math.sqrt(ComplexNum);
@@ -81,15 +96,13 @@ function changeResult(value) {
 function saveValues() {
 
     // Получаем значения из полей ввода
-    let val = document.getElementById('en').value;
+    let val = document.getElementById('en').value.replace(",",".");
     let accur = document.getElementById('nod').value;
 
     // Выводим значения в консоль (или выполняем другую логику)
-    console.log(typeof val, "Значение val:", val);
-    console.log(typeof accur, "Значение accur:", accur);
-
+    //console.log(typeof val, "Значение val:", val);
+    //console.log(typeof accur, "Значение accur:", accur);
     // Добавляем возможность использовать val и accur вне функции
-
     window.val = val;
     window.accur = accur;
 }
