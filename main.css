@@ -35,10 +35,15 @@ body{
 }
 #en{
     border-radius: 5px;
-    display: inline-block;
     color:#1E1A16;
     padding:0;
-    font-size: 60px;
+    font-size: 53px;
+    width:340px;
+    position: absolute;
+    top: 130px;
+    left:215px;
+    background-color: rgb(0,0,0,0);
+    border:rgb(0,0,0,0);
 }
 #nod{
     border-radius: 100px;
@@ -53,9 +58,14 @@ body{
     position:absolute;
 }
 #square{
-    top:-30px;
+    top:36px;
+    left:173px;
     position: absolute;
     z-index: -1;
+<<<<<<< HEAD
+=======
+    height:38%;
+>>>>>>> 429f2d60e2c1a69955129cbf891386efe1d5fc3c
 }
 .logos{
     color: #68CDFE;
