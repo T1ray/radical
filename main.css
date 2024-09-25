@@ -53,10 +53,7 @@ body{
     position:absolute;
 }
 #square{
-    width:55%;
-    height:12%;
-    top:115px;
-    left:170px;
+    top:-30px;
     position: absolute;
 }
 .logos{
