@@ -61,7 +61,7 @@ function calculate() {
             let sign = Math.sign(sqrtResult.im);
             if (sign===1) {sign = "+"}
             else {sign = "-"}
-            res = String(`${sqrtResult.re.toFixed(accur)}${sign}${Math.abs(sqrtResult.im.toFixed(accur))}i`)
+            res = String(`${sqrtResult.re.toFixed(accur)}${sign}${Math.abs(sqrtResult.im).toFixed(accur)}i`)
         }
 
     } else {
