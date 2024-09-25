@@ -2,12 +2,16 @@
 *{
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family: sd2;
+    box-sizing:border-box;  
 }
 @font-face {
-    font-family: sd2;
+    font-family: "sd2";
     src: url(fonts\Calculator.woff2);
+}
+@font-face {
+    font-family: "weather";
+    src: url(fonts\merriweather-regular-italic.woff2);
+    font-size: 100px;
 }
 @font-face {
     font-family: sd1;
@@ -41,9 +45,10 @@ body{
     width:340px;
     position: absolute;
     top: 130px;
-    left:215px;
+    left:210px;
     background-color: rgb(0,0,0,0);
     border:rgb(0,0,0,0);
+    font-family: "sd2";
 }
 #nod{
     border-radius: 10px;
