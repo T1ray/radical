@@ -55,6 +55,7 @@ body{
 #square{
     top:-30px;
     position: absolute;
+    z-index: -1;
 }
 .logos{
     color: #68CDFE;
