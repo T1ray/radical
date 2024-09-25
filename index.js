@@ -5,10 +5,11 @@ function ButtonClick() {
 }
 
 function TypeNumber(str) {
-    console.log(math.typeOf(str));
+    console.log(str);
     try {
-        str = math.simplify(str).toString();
-    } catch(e) {} 
+        str = math.evaluate(str).toString().replace(' ', '');
+    } catch (e) {}
+    console.log(str);
     var flag = -1;
     var nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     if (str === "0") //zero
@@ -24,6 +25,7 @@ function TypeNumber(str) {
                 flag = -1;
             }
         }
+
     } else //positive numbers
     {
         flag = 2;
@@ -33,10 +35,12 @@ function TypeNumber(str) {
                 flag = -1;
             }
         }
+
     }
-    if (str === '' || isNaN(str)) {
-        flag = -1;
-    }
+    try {
+        let x = parseFloat(str);
+        console.log(typeof x, x);
+    } catch (e) {}
     try {
         // Попытка преобразовать в комплексное число
         let complex = math.complex(str);
@@ -44,12 +48,15 @@ function TypeNumber(str) {
         // Проверка, является ли число комплексным
         if (complex.im !== 0) {
             flag = 4;
-        }
-        else if (complex.im === 0 && !Number.isInteger(complex.re)) {
+            return flag;
+        } else if (complex.im === 0 && !Number.isInteger(complex.re)) {
             flag = 3;
         }
     } catch (e) {}
-
+    // if (str === '' || isNaN(str)) {
+    //     console.log('float');
+    //     flag = -1;
+    // }
     return flag;
 }
 
@@ -58,10 +65,10 @@ function calculate() {
     var TypeNumVal = TypeNumber(val);
     var TypeNumAccur = TypeNumber(accur);
     try {
-        val = math.simplify(val).toString();
-    } catch(e) {} 
+        val = math.evaluate(val).toString().replace(' ', '');
+    } catch (e) {}
     console.log(TypeNumVal, val);
-    console.log(TypeNumAccur, accur);
+    //console.log(TypeNumAccur, accur);
     if (TypeNumVal != -1 && (TypeNumAccur === 2 || TypeNumAccur === 0)) {
         if (TypeNumVal === 0) {
             res = "0";
@@ -80,8 +87,7 @@ function calculate() {
             let ComplexNum = math.complex(val);
             let sqrtResult = math.sqrt(ComplexNum);
             let sign = Math.sign(sqrtResult.im);
-            if (sign===1) {sign = "+"}
-            else {sign = "-"}
+            if (sign === 1) { sign = "+" } else { sign = "-" }
             res = String(`${sqrtResult.re.toFixed(accur)}${sign}${Math.abs(sqrtResult.im).toFixed(accur)}i`)
         }
 
@@ -92,7 +98,6 @@ function calculate() {
 }
 
 function changeResult(value) {
-    console.log("nice");
     const out = document.getElementById('en');
     out.value = String(value);
     document.getElementById("nod").value = 0;
@@ -102,7 +107,7 @@ function changeResult(value) {
 function saveValues() {
 
     // Получаем значения из полей ввода
-    let val = document.getElementById('en').value.replace(",",".");
+    let val = document.getElementById('en').value.replace(",", ".");
     let accur = document.getElementById('nod').value;
 
     // Выводим значения в консоль (или выполняем другую логику)
